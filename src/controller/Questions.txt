@@ -1,3 +1,0 @@
-
-1.) Can I get the column count automatically from the JFrame window using some method or anonymous class or something like that?
-2.) 
