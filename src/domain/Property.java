@@ -111,8 +111,4 @@ public class Property {
     public void setDescription(String description) {
         this.description = description;
     }
-    
-    
-    
-
 }

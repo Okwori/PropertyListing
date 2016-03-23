@@ -6,6 +6,8 @@
 
 package db;
 
+import domain.GeneralDomainObject;
+import domain.Users;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -27,64 +29,30 @@ public class DatabaseBroker {
         // load a Driver class
         Class.forName("com.mysql.jdbc.Driver");
         //making a connection        
-        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/person", "root", "");
-        
-        //System.out.println("Connection is established!");
+        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/propertylisting", "root", "");
+       
+    }
+    
+    public void insertDomainObject(GeneralDomainObject gdo) throws SQLException, Exception{              
+        String query = "INSERT INTO "+ gdo.getTableName()+gdo.getColumnsForInsert()+" VALUES" +gdo.getValuesForInsert(); 
+        //String query = "INSERT INTO user(user, user_password, group_id) VALUES("+"'"+"Simon"+"'"+", 'Okwori', 1)";
+        makeConnection();
+        Statement st = connection.createStatement();        
+        st.executeUpdate(query);   
+        closeConnection();
     }
     
     
-    public void closeConnection() throws SQLException{
-        
+    public void closeConnection() throws SQLException{        
         connection.close();
-    }
+    }   
     
-    //  Property Classes
-    // public 
-
-    /*
-    public List<City> getAllCities() throws SQLException{
-        
-        List<City> cities = new ArrayList<>(); 
-        
-        String sql = "Select * from City";
-        
-        Statement st = connection.createStatement();
-        
-        ResultSet rs = st.executeQuery(sql);
-                
-        while(rs.next()){
-            
-            City city = new City();
-            
-            city.setZipCode(rs.getLong("zipCode"));
-            city.setName(rs.getString("name"));
-            
-            cities.add(city);
-            
-        }        
-        
-        return cities;
-        
+    public static void main(String[] args) throws Exception {
+        DatabaseBroker dbo = new DatabaseBroker();
+        Users user = new Users();
+        user.setUserName("'"+"Simon"+"'"); user.setUserPassword("'"+"Tony"+"'"); user.setGroupID(1);
+        dbo.insertDomainObject(user);
+        System.out.println("Successful!");
     }
-    
-    public void insertPerson(Object p) throws SQLException{
-        
-        //String sql = "INSERT INTO Person VALUES("+p.getPersonID()+",'"+p.getFirstName()+"'...)";
-        
-        String sql = "INSERT INTO  Person  VALUES (?,?,?,?,?)";
-        
-        PreparedStatement ps = connection.prepareStatement(sql);
-        
-        ps.setInt(1, p.getPersonID());
-        ps.setString(2, p.getFirstName());
-        ps.setString(3,p.getLastName());
-        ps.setString(4, p.getStreet());
-        ps.setLong(5, p.getCity().getZipCode());
-        
-        ps.executeUpdate();
-        
-    }
-    
-    */
     
 }
