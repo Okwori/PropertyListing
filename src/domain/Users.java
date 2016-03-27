@@ -23,22 +23,25 @@ import java.util.List;
 public class Users implements GeneralDomainObject{
     
     private int userID;
-    private static String userName;
+    private String userName;
     private UserGroup userGroup;
     private String userPassword;
     private int GroupID;
 
     public Users() {
+        userName = null;
+        userPassword = null;
+        GroupID = 0;
     }
     
     public Users(String userName, String userPassword,  UserGroup userGroup) {
         //this.userID = userID;
-        Users.userName = userName;
+        this.userName = userName;
         this.userGroup = userGroup;
         this.userPassword = userPassword;
     }
     public Users (String userName, String password, int GroupID){
-        Users.userName = userName;
+        this.userName = userName;
         this.userPassword = password;
         this.GroupID = GroupID;       
     }
@@ -56,7 +59,7 @@ public class Users implements GeneralDomainObject{
     }
 
     public void setUserName(String userName) {
-        Users.userName = userName;
+        this.userName = userName;
     }
 
     public UserGroup getUserGroup() {
@@ -82,7 +85,7 @@ public class Users implements GeneralDomainObject{
 
     @Override
     public String getValuesForInsert() {
-        return '('+userName+','+userPassword+','+GroupID+')';
+        return '('+getUserName()+','+getUserPassword()+','+getGroupID()+')';
     }
    
     @Override

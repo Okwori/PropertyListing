@@ -4,6 +4,7 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/consc/Documents/NetBeansProjects/PropertyListing/src/gui/FrmLogin.java</file>
+            <file>file:/C:/Users/consc/Documents/NetBeansProjects/PropertyListing/src/listeners/FrmLoginListener.java</file>
             <file>file:/C:/Users/consc/Documents/NetBeansProjects/PropertyListing/src/controller/Controller.java</file>
             <file>file:/C:/Users/consc/Documents/NetBeansProjects/PropertyListing/src/db/DatabaseBroker.java</file>
             <file>file:/C:/Users/consc/Documents/NetBeansProjects/PropertyListing/src/domain/Users.java</file>

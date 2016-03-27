@@ -20,7 +20,8 @@ import javax.swing.JDialog;
  * @author consc
  */
 public class FrmLogin extends javax.swing.JFrame {
-
+    
+    
     /**
      * Creates new form FrmLogin
      */
@@ -37,6 +38,9 @@ public class FrmLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("mysql?zeroDateTimeBehavior=convertToNullPU").createEntityManager();
+        dbQuery = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT d FROM Db d");
+        dbList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : dbQuery.getResultList();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         lbl_username = new javax.swing.JLabel();
@@ -52,6 +56,7 @@ public class FrmLogin extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         txt_pwdConfirm = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -130,6 +135,8 @@ public class FrmLogin extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setText("Select User Group");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -146,7 +153,9 @@ public class FrmLogin extends javax.swing.JFrame {
                             .addComponent(txtNewUsername)
                             .addComponent(txt_pwd, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton2)
@@ -168,9 +177,11 @@ public class FrmLogin extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txt_pwdConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addComponent(jButton2)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addGap(29, 29, 29))
         );
 
         jTabbedPane1.addTab("Sign Up", jPanel2);
@@ -246,14 +257,28 @@ public class FrmLogin extends javax.swing.JFrame {
             }
         });
     }
+    
+    private static int isLogin;
+
+    public static int getIsLogin() {
+        return isLogin;
+    }
+
+    public static void setIsLogin(int aIsLogin) {
+        isLogin = aIsLogin;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.util.List<gui.Db> dbList;
+    private javax.persistence.Query dbQuery;
+    private javax.persistence.EntityManager entityManager;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTabbedPane jTabbedPane1;

@@ -25,8 +25,8 @@ import java.util.List;
 public class Controller extends Exception {
     
     private static Controller instance; 
-    DatabaseBroker dbb;
-    Users user;
+    DatabaseBroker dbb = new DatabaseBroker();
+    Users user = new Users();
     
     
     private Controller() {                         
@@ -39,7 +39,11 @@ public class Controller extends Exception {
         return (instance);
     }
     
+   public Users getUser(){
+        return new Users();
+    }
+    
     public void insertUsers() throws SQLException, Exception{
-        dbb.insertDomainObject(user);
+        dbb.insertDomainObject(getUser());
     }
 }

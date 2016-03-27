@@ -35,7 +35,7 @@ public class DatabaseBroker {
     
     public void insertDomainObject(GeneralDomainObject gdo) throws SQLException, Exception{              
         String query = "INSERT INTO "+ gdo.getTableName()+gdo.getColumnsForInsert()+" VALUES" +gdo.getValuesForInsert(); 
-        //String query = "INSERT INTO user(user, user_password, group_id) VALUES("+"'"+"Simon"+"'"+", 'Okwori', 1)";
+        //String query = "INSERT INTO user(user, user_password, group_id) VALUES("+"'"+"Simon5"+"'"+", 'Okwori', 1)";
         makeConnection();
         Statement st = connection.createStatement();        
         st.executeUpdate(query);   
@@ -50,9 +50,9 @@ public class DatabaseBroker {
     public static void main(String[] args) throws Exception {
         DatabaseBroker dbo = new DatabaseBroker();
         Users user = new Users();
-        user.setUserName("'"+"Simon"+"'"); user.setUserPassword("'"+"Tony"+"'"); user.setGroupID(1);
+        user.setUserName("'"+"Simon78"+"'"); user.setUserPassword("'"+"Tony"+"'"); user.setGroupID(1);
         dbo.insertDomainObject(user);
         System.out.println("Successful!");
-    }
-    
+        System.out.println(user.getValuesForInsert());
+    }    
 }
