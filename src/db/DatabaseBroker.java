@@ -42,9 +42,19 @@ public class DatabaseBroker {
         closeConnection();
     }
     
+    public List<GeneralDomainObject> ListDomainObject(GeneralDomainObject gdo, String whereClause) throws SQLException, Exception{
+        whereClause = "";
+        String query = "Select * from "+gdo.getTableName()+whereClause;
+        makeConnection();
+        Statement st = connection.createStatement();
+        ResultSet rs = st.executeQuery(query);
+        //closeConnection();
+        return  gdo.getObjectList(rs);
+    }
+    
     
     public void closeConnection() throws SQLException{        
-        connection.close();
+        connection.close(); 
     }   
     
     public static void main(String[] args) throws Exception {

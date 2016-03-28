@@ -21,6 +21,10 @@ public interface GeneralDomainObject {
     
     String getColumnsForInsert();
     
-    List<?> getObjectList(ResultSet rs) throws SQLException;
+    List<GeneralDomainObject> getObjectList(ResultSet rs) throws SQLException;
+    
+    //String getWhereCondition() throws SQLException;
+    
+    //List<GeneralDomainObject> getObjectListwithCondition(ResultSet rs) throws SQLException;
     
 }

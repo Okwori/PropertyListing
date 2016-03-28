@@ -3,8 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package controller;
+
 import db.DatabaseBroker;
 import domain.*;
 import gui.*;
@@ -23,27 +23,35 @@ import java.util.List;
  * @author Simon Okwori - University of Belgrade. Msc Software Engineering
  */
 public class Controller extends Exception {
-    
-    private static Controller instance; 
+
+    private static Controller instance;
     DatabaseBroker dbb = new DatabaseBroker();
     Users user = new Users();
-    
-    
-    private Controller() {                         
+    UserGroup group = new UserGroup();
+
+    private Controller() {
     }
-    
-    public static Controller getInstance(){
-        if(instance == null){
+
+    public static Controller getInstance() {
+        if (instance == null) {
             instance = new Controller();
         }
         return (instance);
     }
-    
-   public Users getUser(){
-        return new Users();
+
+    public Users getUser() {
+        return user;
     }
     
-    public void insertUsers() throws SQLException, Exception{
+    public UserGroup getUserGroup(){
+        return group;
+    }
+
+    public void insertUsers() throws SQLException, Exception {
         dbb.insertDomainObject(getUser());
+    }
+
+    public List<GeneralDomainObject> listUserGroupCombo() throws SQLException, Exception {
+        return dbb.ListDomainObject(getUserGroup(), "");
     }
 }
