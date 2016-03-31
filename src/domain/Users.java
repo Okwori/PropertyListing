@@ -89,7 +89,7 @@ public class Users implements GeneralDomainObject {
 
     @Override
     public String getTableName() {
-        return "User";
+        return "user";
     }
 
     @Override
@@ -112,7 +112,17 @@ public class Users implements GeneralDomainObject {
 
     @Override
     public List<GeneralDomainObject> getObjectList(ResultSet rs) throws SQLException {
-        return new ArrayList<>();
+        List<GeneralDomainObject> obj = new ArrayList<>();
+        while(rs.next()){
+            Users user = new Users();
+            user.setUserID(rs.getInt("user_id"));
+            user.setUserName(rs.getString("user"));
+            user.setUserPassword(rs.getString("user_password"));
+            user.setGroupID(rs.getInt("group_id"));
+            user.setStatusID(rs.getInt("status_id"));      
+            obj.add(user);
+        }
+        return obj;
     }    
     
     public String loginWhereClause(String username, String password){

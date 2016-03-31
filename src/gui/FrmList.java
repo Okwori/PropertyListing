@@ -5,6 +5,8 @@
  */
 package gui;
 
+import listeners.FrmLoginListener;
+
 /**
  *
  * @author consc
@@ -16,6 +18,7 @@ public class FrmList extends javax.swing.JFrame {
      */
     public FrmList() {
         initComponents();
+        new FrmLoginListener(this).fillUserGroupCombo();
     }
 
     /**

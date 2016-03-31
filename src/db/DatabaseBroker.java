@@ -7,6 +7,7 @@
 package db;
 
 import domain.GeneralDomainObject;
+import domain.UserGroup;
 import domain.Users;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -43,7 +44,7 @@ public class DatabaseBroker {
     }
     
     public List<GeneralDomainObject> ListDomainObject(GeneralDomainObject gdo, String whereClause) throws SQLException, Exception{
-        whereClause = "";
+        //whereClause = "";
         String query = "Select * from "+gdo.getTableName()+whereClause;
         makeConnection();
         Statement st = connection.createStatement();
@@ -59,10 +60,13 @@ public class DatabaseBroker {
     
     public static void main(String[] args) throws Exception {
         DatabaseBroker dbo = new DatabaseBroker();
-        Users user = new Users();
-        user.setUserName("'"+"Simon78"+"'"); user.setUserPassword("'"+"Tony"+"'"); user.setGroupID(1);
-        dbo.insertDomainObject(user);
-        System.out.println("Successful!");
-        System.out.println(user.getValuesForInsert());
+        Users user = new Users(); UserGroup ug = new UserGroup();
+        //user.setUserName("'"+"Simon78"+"'"); user.setUserPassword("'"+"Tony"+"'"); user.setGroupID(1);
+        //dbo.insertDomainObject(user);
+        //System.out.println("Successful!");
+        //System.out.println(user.getValuesForInsert()); 
+        String usern = "Simon", password = "Tony"; 
+        //System.out.println(dbo.ListDomainObject(ug, " where group_id=1")); //+usern+" and user_password="+password).size());  
+        System.out.println(dbo.ListDomainObject(user, " where user='"+usern+"' and user_password='"+password+"'").size());        
     }    
 }
