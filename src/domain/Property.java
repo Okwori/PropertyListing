@@ -10,12 +10,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.table.AbstractTableModel;
 
 /**
  *
  * @author Simon Okwori - University of Belgrade. Msc Software Engineering
  */
-public class Property implements GeneralDomainObject{
+public class Property extends AbstractTableModel implements GeneralDomainObject{
     
     private int propertyID;
     //private List<Property> property;
@@ -31,6 +32,7 @@ public class Property implements GeneralDomainObject{
     private int statusID;
     private int customerID; 
     private List<Customers> custList;
+    private List<Property> propertyList;
 
     public Property() {
     }
@@ -167,5 +169,20 @@ public class Property implements GeneralDomainObject{
 
     public void setCustList(List<Customers> custList) {
         this.custList = custList;
+    }
+
+    @Override
+    public int getRowCount() {
+        return propertyList.size();
+    }
+
+    @Override
+    public int getColumnCount() {
+        return 8;
+    }
+
+    @Override
+    public Object getValueAt(int rowIndex, int columnIndex) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
