@@ -31,7 +31,7 @@ public class tblModel extends AbstractTableModel {
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         Property ppty = tblContent.get(rowIndex);
-        
+        /*
         switch(columnIndex){
             case 0: return ppty.getName();
             case 1: return ppty.getStructure();
@@ -41,7 +41,8 @@ public class tblModel extends AbstractTableModel {
             case 5: return ppty.getArea();
             case 6: return ppty.getFurniture();
             case 7: return ppty.getDescription();
-        }        
+*/
+       // }        
         return null;        
     }
 }

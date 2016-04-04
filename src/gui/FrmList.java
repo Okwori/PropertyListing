@@ -5,6 +5,7 @@
  */
 package gui;
 
+import javax.swing.JComboBox;
 import listeners.FrmLoginListener;
 
 /**
@@ -13,12 +14,16 @@ import listeners.FrmLoginListener;
  */
 public class FrmList extends javax.swing.JFrame {
 
+    public JComboBox<String> getComboCustomer() {
+        return comboCustomer;
+    }
+
     /**
      * Creates new form FrmList
      */
     public FrmList() {
         initComponents();
-        new FrmLoginListener(this).fillUserGroupCombo();
+        new FrmLoginListener(this).fillFrmListCombos();
     }
 
     /**
@@ -58,9 +63,10 @@ public class FrmList extends javax.swing.JFrame {
         lblFurniture = new javax.swing.JLabel();
         comBoxFurniture = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        comboCustomer = new javax.swing.JComboBox<>();
         menuMain = new javax.swing.JMenuBar();
         menuRent = new javax.swing.JMenu();
-        menuSale = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         menuListPpty = new javax.swing.JMenu();
         menuInfo = new javax.swing.JMenu();
@@ -92,13 +98,27 @@ public class FrmList extends javax.swing.JFrame {
         txtAreaDescription.setRows(5);
         jScrollPane5.setViewportView(txtAreaDescription);
 
-        btnSubmit.setText("Next");
+        btnSubmit.setText("Submit");
+        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubmitActionPerformed(evt);
+            }
+        });
 
         btnReset.setText("Reset");
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetActionPerformed(evt);
+            }
+        });
 
         btnCancel.setText("Cancel");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
+            }
+        });
 
-        comBoxPropertyType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         comBoxPropertyType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comBoxPropertyTypeActionPerformed(evt);
@@ -107,20 +127,17 @@ public class FrmList extends javax.swing.JFrame {
 
         lblPropertyType.setText("Property Type");
 
-        comBoxCityArea.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         lblCityArea.setText("City Area");
-
-        comBoxStructure.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         lblStructure.setText("Structure");
 
         lblFurniture.setText("Furniture");
 
-        comBoxFurniture.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Enter details of a new property");
+
+        jLabel2.setText("Customer");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -128,57 +145,63 @@ public class FrmList extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(472, 472, 472)
-                        .addComponent(btnSubmit)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnReset)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnCancel))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblNameOfProperty)
-                                .addComponent(lblPrice, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(lblAddress, javax.swing.GroupLayout.Alignment.TRAILING))
-                            .addGap(18, 18, 18)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(64, 64, 64)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(lblPropertyType)
-                                .addComponent(lblCityArea)
-                                .addComponent(lblStructure))
-                            .addGap(18, 18, 18)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(comBoxPropertyType, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(comBoxCityArea, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(comBoxStructure, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblArea, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(lblFurniture, javax.swing.GroupLayout.Alignment.TRAILING))
-                            .addGap(18, 18, 18)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(comBoxFurniture, javax.swing.GroupLayout.Alignment.LEADING, 0, 220, Short.MAX_VALUE))
-                                    .addGap(132, 132, 132))
-                                .addComponent(lblDescription))
-                            .addGap(18, 18, 18)
-                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(82, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNameOfProperty)
+                            .addComponent(lblPrice, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblAddress, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(64, 64, 64)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblPropertyType)
+                            .addComponent(lblCityArea)
+                            .addComponent(lblStructure))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(comBoxPropertyType, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(comBoxCityArea, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(comBoxStructure, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblArea, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblFurniture, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(comBoxFurniture, javax.swing.GroupLayout.Alignment.LEADING, 0, 220, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(150, 150, 150)
+                                .addComponent(btnSubmit)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnReset)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnCancel))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(86, 86, 86)
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(comboCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(172, 172, 172))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblDescription)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(34, 34, 34)
+                .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblNameOfProperty)
@@ -198,39 +221,40 @@ public class FrmList extends javax.swing.JFrame {
                     .addComponent(lblPrice)
                     .addComponent(lblStructure)
                     .addComponent(comBoxStructure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(13, 13, 13)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblArea)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblArea)
-                            .addComponent(lblDescription))
-                        .addGap(31, 31, 31)
+                        .addGap(5, 5, 5)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblFurniture)
-                            .addComponent(comBoxFurniture, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jScrollPane5))
-                .addGap(18, 18, 18)
+                            .addComponent(comboCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))))
+                .addGap(26, 26, 26)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblFurniture)
+                        .addComponent(comBoxFurniture, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblDescription)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSubmit)
                     .addComponent(btnReset)
                     .addComponent(btnCancel))
-                .addGap(41, 41, 41))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         menuMain.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         menuMain.setRequestFocusEnabled(false);
 
-        menuRent.setText("Add Property ");
+        menuRent.setText("Edit Property");
         menuRent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuRentActionPerformed(evt);
             }
         });
         menuMain.add(menuRent);
-
-        menuSale.setText("Edit");
-        menuMain.add(menuSale);
 
         jMenu1.setText("Add Client");
         menuMain.add(jMenu1);
@@ -269,7 +293,7 @@ public class FrmList extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pack();
@@ -287,6 +311,18 @@ public class FrmList extends javax.swing.JFrame {
         // TODO add your handling code here:
         new FrmList().setVisible(true);
     }//GEN-LAST:event_menuRentActionPerformed
+
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
+        new FrmLoginListener(this).resetProperty(evt);
+    }//GEN-LAST:event_btnResetActionPerformed
+
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        new FrmLoginListener(this).cancelProperty(evt);
+    }//GEN-LAST:event_btnCancelActionPerformed
+
+    private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
+        new FrmLoginListener(this).insertProperty(evt);
+    }//GEN-LAST:event_btnSubmitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -331,7 +367,9 @@ public class FrmList extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comBoxFurniture;
     private javax.swing.JComboBox<String> comBoxPropertyType;
     private javax.swing.JComboBox<String> comBoxStructure;
+    private javax.swing.JComboBox<String> comboCustomer;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -354,11 +392,82 @@ public class FrmList extends javax.swing.JFrame {
     private javax.swing.JMenu menuListPpty;
     private javax.swing.JMenuBar menuMain;
     private javax.swing.JMenu menuRent;
-    private javax.swing.JMenu menuSale;
     private javax.swing.JTextPane txtAddress;
     private javax.swing.JTextPane txtArea;
     private javax.swing.JTextArea txtAreaDescription;
     private javax.swing.JTextPane txtNameOfProperty;
     private javax.swing.JTextPane txtPrice;
     // End of variables declaration//GEN-END:variables
+
+    public javax.swing.JComboBox<String> getComBoxCityArea() {
+        return comBoxCityArea;
+    }
+
+    public void setComBoxCityArea(javax.swing.JComboBox<String> comBoxCityArea) {
+        this.comBoxCityArea = comBoxCityArea;
+    }
+
+    public javax.swing.JComboBox<String> getComBoxFurniture() {
+        return comBoxFurniture;
+    }
+
+    public void setComBoxFurniture(javax.swing.JComboBox<String> comBoxFurniture) {
+        this.comBoxFurniture = comBoxFurniture;
+    }
+
+    public javax.swing.JComboBox<String> getComBoxPropertyType() {
+        return comBoxPropertyType;
+    }
+
+    public void setComBoxPropertyType(javax.swing.JComboBox<String> comBoxPropertyType) {
+        this.comBoxPropertyType = comBoxPropertyType;
+    }
+
+    public javax.swing.JComboBox<String> getComBoxStructure() {
+        return comBoxStructure;
+    }
+
+    public void setComBoxStructure(javax.swing.JComboBox<String> comBoxStructure) {
+        this.comBoxStructure = comBoxStructure;
+    }
+
+    public javax.swing.JTextPane getTxtAddress() {
+        return txtAddress;
+    }
+
+    public void setTxtAddress(javax.swing.JTextPane txtAddress) {
+        this.txtAddress = txtAddress;
+    }
+
+    public javax.swing.JTextPane getTxtArea() {
+        return txtArea;
+    }
+
+    public void setTxtArea(javax.swing.JTextPane txtArea) {
+        this.txtArea = txtArea;
+    }
+
+    public javax.swing.JTextArea getTxtAreaDescription() {
+        return txtAreaDescription;
+    }
+
+    public void setTxtAreaDescription(javax.swing.JTextArea txtAreaDescription) {
+        this.txtAreaDescription = txtAreaDescription;
+    }
+
+    public javax.swing.JTextPane getTxtNameOfProperty() {
+        return txtNameOfProperty;
+    }
+
+    public void setTxtNameOfProperty(javax.swing.JTextPane txtNameOfProperty) {
+        this.txtNameOfProperty = txtNameOfProperty;
+    }
+
+    public javax.swing.JTextPane getTxtPrice() {
+        return txtPrice;
+    }
+
+    public void setTxtPrice(javax.swing.JTextPane txtPrice) {
+        this.txtPrice = txtPrice;
+    }
 }

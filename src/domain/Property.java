@@ -6,39 +6,42 @@
 
 package domain;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  *
  * @author Simon Okwori - University of Belgrade. Msc Software Engineering
  */
-public class Property {
+public class Property implements GeneralDomainObject{
     
-    private List<Property> property;
+    private int propertyID;
+    //private List<Property> property;
     private String name;
-    private String structure;
-    private String type;
+    private int structureID;
+    private int propertyTypeID;
     private double price;
     private String address;
     private String area;
-    private String furniture;
+    private int furnitureID;
     private String description;
+    private int cityAreaID;
+    private int statusID;
+    private int customerID; 
+    private List<Customers> custList;
 
     public Property() {
     }
-
-    public Property(String name, String structure, String type, double price, String address, String area, String furniture, String description) {
-       
-        this.name = name;
-        this.structure = structure;
-        this.type = type;
-        this.price = price;
-        this.address = address;
-        this.area = area;
-        this.furniture = furniture;
-        this.description = description;
+   
+    public int getPropertyID() {
+        return propertyID;
     }
-    
+
+    public void setPropertyID(int propertyID) {
+        this.propertyID = propertyID;
+    }
 
     public String getName() {
         return name;
@@ -48,28 +51,20 @@ public class Property {
         this.name = name;
     }
 
-    public List<Property> getProperty() {
-        return property;
+    public int getStructureID() {
+        return structureID;
     }
 
-    public void setProperty(List<Property> property) {
-        this.property = property;
+    public void setStructureID(int structureID) {
+        this.structureID = structureID;
     }
 
-    public String getStructure() {
-        return structure;
+    public int getPropertyTypeID() {
+        return propertyTypeID;
     }
 
-    public void setStructure(String structure) {
-        this.structure = structure;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
+    public void setPropertyTypeID(int propertyTypeID) {
+        this.propertyTypeID = propertyTypeID;
     }
 
     public double getPrice() {
@@ -96,12 +91,12 @@ public class Property {
         this.area = area;
     }
 
-    public String getFurniture() {
-        return furniture;
+    public int getFurnitureID() {
+        return furnitureID;
     }
 
-    public void setFurniture(String furniture) {
-        this.furniture = furniture;
+    public void setFurnitureID(int furnitureID) {
+        this.furnitureID = furnitureID;
     }
 
     public String getDescription() {
@@ -110,5 +105,67 @@ public class Property {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getCityAreaID() {
+        return cityAreaID;
+    }
+
+    public void setCityAreaID(int cityAreaID) {
+        this.cityAreaID = cityAreaID;
+    }
+
+    public int getStatusID() {
+        return statusID;
+    }
+
+    public void setStatusID(int statusID) {
+        this.statusID = statusID;
+    }
+
+    public int getCustomerID() {
+        return customerID;
+    }
+
+    public void setCustomerID(int customerID) {
+        this.customerID = customerID;
+    }         
+    
+    @Override
+    public String getTableName() {
+        return "property";
+    }
+
+    @Override
+    public String getValuesForInsert() {
+        return '('+ getName() + ','+ getStructureID() + ',' +getPropertyTypeID()+','+getPrice()+','+getAddress()+','+getArea()+','+getFurnitureID()+','+getDescription()+')';//+','+getCityAreaID()+')';//+','+getStatusID()+','+getCustomerID()+')';
+    }
+
+    @Override
+    public String getColumnsForInsert() {
+        return "(property_name, structure_id, property_type_id, price, address, area, furniture_id, description)";// city_area_id)"; status_id, customer_id)";
+    }
+
+    @Override
+    public List<GeneralDomainObject> getObjectList(ResultSet rs) throws SQLException {
+        List<GeneralDomainObject> obj = new ArrayList<>();
+        while(rs.next()){
+            Users user = new Users();
+            user.setUserID(rs.getInt("user_id"));
+            user.setUserName(rs.getString("user"));
+            user.setUserPassword(rs.getString("user_password"));
+            user.setGroupID(rs.getInt("group_id"));
+            user.setStatusID(rs.getInt("status_id"));      
+            obj.add(user);
+        }
+        return obj;
+    }    
+
+    public List<Customers> getCustList() {
+        return custList;
+    }
+
+    public void setCustList(List<Customers> custList) {
+        this.custList = custList;
     }
 }

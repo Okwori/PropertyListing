@@ -28,11 +28,12 @@ public class Controller extends Exception {
     DatabaseBroker dbb = new DatabaseBroker();
     Users user = new Users();
     UserGroup group = new UserGroup();
-    Furniture furniture;
-    PropertyType propertyType;
-    Structure structure;
-    CityArea cityArea;
-    
+    Furniture furniture = new Furniture();
+    PropertyType propertyType = new PropertyType();
+    Structure structure = new Structure();
+    CityArea cityArea = new CityArea();
+    Property property = new Property();
+    Customers customer = new Customers();
 
     private Controller() {
     }
@@ -60,6 +61,14 @@ public class Controller extends Exception {
         return cityArea;
     }
 
+    public Property getProperty() {
+        return property;
+    }    
+    
+    public Customers getCustomer() {
+        return customer;
+    }
+
     public Users getUser() {
         return user;
     }
@@ -68,20 +77,15 @@ public class Controller extends Exception {
         return group;
     }
 
-    public void insertUsers() throws SQLException, Exception {
-        dbb.insertDomainObject(getUser());
+    public void insertDomainObject(GeneralDomainObject gdo) throws SQLException, Exception {
+        dbb.insertDomainObject(gdo);
     }
 
-    public List<GeneralDomainObject> listUserGroupCombo(GeneralDomainObject gdo) throws SQLException, Exception {
+    public List<GeneralDomainObject> listCombos(GeneralDomainObject gdo) throws SQLException, Exception {
         return dbb.ListDomainObject(gdo, "");
     }
     
     public  List<GeneralDomainObject> listLoggedInUser(String username, String user_password) throws SQLException, Exception{
         return dbb.ListDomainObject(getUser(), " where user='"+username+"' and user_password='"+user_password+"'");
     }
-    
-//    public List<GeneralDomainObject> listUserGroupCombo() throws SQLException, Exception {
-//        return dbb.ListDomainObject(getUserGroup(), "");
-//    }
-    
 }
