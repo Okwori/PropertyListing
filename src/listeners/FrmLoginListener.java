@@ -180,20 +180,20 @@ public class FrmLoginListener implements ActionListener {
                 
                 property.setStatusID(1);
                         
-                //javax.swing.JOptionPane.showMessageDialog(null, property.getCustomerID()+ "Successfully registered ");
-
                 Controller.getInstance().insertDomainObject(property);
-
-                //javax.swing.JOptionPane.showMessageDialog(null, "Successfully registered ");
-            //}
-        } //catch (SQLException ex) {
-            //javax.swing.JOptionPane.showMessageDialog(null, "User already exits");
+                     
+                javax.swing.JOptionPane.showMessageDialog(null, "You have successfully registered!");
+                                                     
+        }
+        }catch (SQLException ex) {
+            javax.swing.JOptionPane.showMessageDialog(null, "Kindly check the values entered!");
            //Logger.getLogger(FrmLogin.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception ex) {
             //javax.swing.JOptionPane.showMessageDialog(null, "Something is not right! Check Form Listerner.registerUser.java");
             Logger.getLogger(FrmLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
 
     public void resetProperty(ActionEvent e) {
         frmList.getTxtPrice().setText(null);

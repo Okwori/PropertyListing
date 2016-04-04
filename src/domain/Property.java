@@ -138,12 +138,12 @@ public class Property implements GeneralDomainObject{
 
     @Override
     public String getValuesForInsert() {
-        return '('+ getName() + ','+ getStructureID() + ',' +getPropertyTypeID()+','+getPrice()+','+getAddress()+','+getArea()+','+getFurnitureID()+','+getDescription()+')';//+','+getCityAreaID()+')';//+','+getStatusID()+','+getCustomerID()+')';
+        return '('+ getName() + ','+getStructureID() + ',' +getPropertyTypeID()+','+getPrice()+','+getAddress()+','+getArea()+','+getFurnitureID()+','+"'"+getDescription()+"'"+','+getCityAreaID()+','+getStatusID()+','+getCustomerID()+')';
     }
 
     @Override
     public String getColumnsForInsert() {
-        return "(property_name, structure_id, property_type_id, price, address, area, furniture_id, description)";// city_area_id)"; status_id, customer_id)";
+        return "(property_name, structure_id, property_type_id, price, address, area, furniture_id, description, city_area_id, status_id, customer_id)";
     }
 
     @Override
