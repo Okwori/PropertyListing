@@ -31,6 +31,10 @@ public class Property extends AbstractTableModel implements GeneralDomainObject{
     private int cityAreaID;
     private int statusID;
     private int customerID; 
+    private String structure;
+    private String propertyType;
+    private String furniture;
+    
     private List<Customers> custList;
     private List<Property> propertyList;
 
@@ -183,6 +187,44 @@ public class Property extends AbstractTableModel implements GeneralDomainObject{
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Property property = propertyList.get(rowIndex);
+        
+        switch (columnIndex){ 
+        case 0: return property.getName();
+        case 1: return property.getName();
+        case 2: return property.getStructure();
+        case 3: return property.getPropertyType();
+        case 4: return property.getPrice();
+        case 5: return property.getFurnitureID();
+        case 6: return property.getName();
+        case 7: return property.getName();
+        case 8: return property.getName();       
+    }
+        return null;
+    }
+
+    public String getStructure() {
+        return structure;
+    }
+
+    public void setStructure(String structure) {
+        this.structure = structure;
+    }
+
+    public String getPropertyType() {
+        return propertyType;
+    }
+
+    public void setPropertyType(String propertyType) {
+        this.propertyType = propertyType;
+    }
+
+    public String getFurniture() {
+        return furniture;
+    }
+
+    public void setFurniture(String furniture) {
+        this.furniture = furniture;
+    }
     }
 }
