@@ -68,5 +68,12 @@ public class Structure implements GeneralDomainObject{
         }
         return obj;
     }
+
+    @Override
+    public String toString() {
+        return getName(); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
     
 }

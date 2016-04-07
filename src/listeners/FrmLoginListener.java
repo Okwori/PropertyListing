@@ -141,19 +141,19 @@ public class FrmLoginListener implements ActionListener {
             listGdo_cityArea = Controller.getInstance().listCombos(cityArea);
             listGDO_customers = Controller.getInstance().listCombos(customers);
             for (int i = 0; i < listGdo_structure.size(); i++) {
-                frmList.getComBoxStructure().addItem(((Structure) listGdo_structure.get(i)).getName());
+                frmList.getComBoxStructure().addItem(listGdo_structure.get(i));
             }
             for (int i = 0; i < listGdo_cityArea.size(); i++) {
-                frmList.getComBoxCityArea().addItem(((CityArea) listGdo_cityArea.get(i)).getName());
+                frmList.getComBoxCityArea().addItem(listGdo_cityArea.get(i));
             }
             for (int i = 0; i < listGdo_furniture.size(); i++) {
-                frmList.getComBoxFurniture().addItem(((Furniture) listGdo_furniture.get(i)).getName());                
+                frmList.getComBoxFurniture().addItem(listGdo_furniture.get(i));                
             }
             for (int i = 0; i < listGdo_ppty.size(); i++) {
-                frmList.getComBoxPropertyType().addItem(((PropertyType) listGdo_ppty.get(i)).getName());
+                frmList.getComBoxPropertyType().addItem(listGdo_ppty.get(i));
             }
             for (int i = 0; i < listGDO_customers.size(); i++) {
-                frmList.getComboCustomer().addItem(((Customers) listGDO_customers.get(i)).getFirstName()+" " +((Customers) listGDO_customers.get(i)).getmName()+" "+((Customers) listGDO_customers.get(i)).getLastName());
+                frmList.getComboCustomer().addItem(listGDO_customers.get(i));
             }            
         } catch (Exception ex) {
             Logger.getLogger(FrmLoginListener.class.getName()).log(Level.SEVERE, null, ex);
@@ -171,12 +171,12 @@ public class FrmLoginListener implements ActionListener {
                 property.setAddress("'" + frmList.getTxtAddress().getText() + "'");
                 property.setPrice(Double.parseDouble(frmList.getTxtPrice().getText()));
                 property.setArea("'" + frmList.getTxtArea().getText() + "'");
-                property.setFurnitureID(frmList.getComBoxFurniture().getSelectedIndex() + 1);
-                property.setPropertyTypeID(frmList.getComBoxPropertyType().getSelectedIndex() + 1);
-                property.setCityAreaID(frmList.getComBoxCityArea().getSelectedIndex() + 1);
-                property.setStructureID( frmList.getComBoxStructure().getSelectedIndex() + 1);
+                property.setFurnitureID((Furniture) frmList.getComBoxFurniture().getSelectedItem());
+                property.setPropertyTypeID((PropertyType) frmList.getComBoxPropertyType().getSelectedItem());
+                property.setCityAreaID((CityArea) frmList.getComBoxCityArea().getSelectedItem());
+                property.setStructureID((Structure) frmList.getComBoxStructure().getSelectedItem());
                 property.setDescription(frmList.getTxtAreaDescription().getText());     
-                property.setCustomerID(frmList.getComboCustomer().getSelectedIndex() + 1);
+                property.setCustomerID((Customers) frmList.getComboCustomer().getSelectedItem());
                 
                 property.setStatusID(1);
                         
@@ -186,14 +186,15 @@ public class FrmLoginListener implements ActionListener {
                                                      
         }
         }catch (SQLException ex) {
-            javax.swing.JOptionPane.showMessageDialog(null, "Kindly check the values entered!");
-           //Logger.getLogger(FrmLogin.class.getName()).log(Level.SEVERE, null, ex);
+            //javax.swing.JOptionPane.showMessageDialog(null, "Kindly check the values entered!");
+           Logger.getLogger(FrmLogin.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception ex) {
             //javax.swing.JOptionPane.showMessageDialog(null, "Something is not right! Check Form Listerner.registerUser.java");
             Logger.getLogger(FrmLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
+    //public void 
 
     public void resetProperty(ActionEvent e) {
         frmList.getTxtPrice().setText(null);

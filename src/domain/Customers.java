@@ -142,7 +142,7 @@ public class Customers implements GeneralDomainObject{
     public String getColumnsForInsert() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+ 
     @Override
     public List<GeneralDomainObject> getObjectList(ResultSet rs) throws SQLException {
         List<GeneralDomainObject> obj = new ArrayList<>();
@@ -159,8 +159,16 @@ public class Customers implements GeneralDomainObject{
             customers.setStatusID(rs.getInt("status_id"));
             customers.setUserID(rs.getInt("user_id"));
             customers.setmName(rs.getString("customer_mname"));
+            customers.setCustomerID(rs.getInt("customer_id"));
             obj.add(customers);
         }
         return obj;    
     }
+
+    @Override 
+    public String toString() {
+        return getFirstName()+" "+getmName()+" "+getLastName()+" "; //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
 }

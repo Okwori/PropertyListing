@@ -90,4 +90,12 @@ public class CityArea implements GeneralDomainObject{
         this.cityAreaID = cityAreaID;
     }
 
+    @Override
+    public String toString() {
+        return getName(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
+    
+    
  }

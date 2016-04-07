@@ -14,7 +14,7 @@ import listeners.FrmLoginListener;
  */
 public class FrmList extends javax.swing.JFrame {
 
-    public JComboBox<String> getComboCustomer() {
+    public JComboBox getComboCustomer() {
         return comboCustomer;
     }
 
@@ -54,17 +54,17 @@ public class FrmList extends javax.swing.JFrame {
         btnSubmit = new javax.swing.JButton();
         btnReset = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
-        comBoxPropertyType = new javax.swing.JComboBox<>();
+        comBoxPropertyType = new javax.swing.JComboBox();
         lblPropertyType = new javax.swing.JLabel();
-        comBoxCityArea = new javax.swing.JComboBox<>();
+        comBoxCityArea = new javax.swing.JComboBox();
         lblCityArea = new javax.swing.JLabel();
-        comBoxStructure = new javax.swing.JComboBox<>();
+        comBoxStructure = new javax.swing.JComboBox();
         lblStructure = new javax.swing.JLabel();
         lblFurniture = new javax.swing.JLabel();
         comBoxFurniture = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        comboCustomer = new javax.swing.JComboBox<>();
+        comboCustomer = new javax.swing.JComboBox();
         menuMain = new javax.swing.JMenuBar();
         menuRent = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
@@ -363,11 +363,11 @@ public class FrmList extends javax.swing.JFrame {
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnSubmit;
-    private javax.swing.JComboBox<String> comBoxCityArea;
+    private javax.swing.JComboBox comBoxCityArea;
     private javax.swing.JComboBox<String> comBoxFurniture;
-    private javax.swing.JComboBox<String> comBoxPropertyType;
-    private javax.swing.JComboBox<String> comBoxStructure;
-    private javax.swing.JComboBox<String> comboCustomer;
+    private javax.swing.JComboBox comBoxPropertyType;
+    private javax.swing.JComboBox comBoxStructure;
+    private javax.swing.JComboBox comboCustomer;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
@@ -399,35 +399,35 @@ public class FrmList extends javax.swing.JFrame {
     private javax.swing.JTextPane txtPrice;
     // End of variables declaration//GEN-END:variables
 
-    public javax.swing.JComboBox<String> getComBoxCityArea() {
+    public javax.swing.JComboBox getComBoxCityArea() {
         return comBoxCityArea;
     }
 
-    public void setComBoxCityArea(javax.swing.JComboBox<String> comBoxCityArea) {
+    public void setComBoxCityArea(javax.swing.JComboBox comBoxCityArea) {
         this.comBoxCityArea = comBoxCityArea;
     }
 
-    public javax.swing.JComboBox<String> getComBoxFurniture() {
+    public javax.swing.JComboBox getComBoxFurniture() {
         return comBoxFurniture;
     }
 
-    public void setComBoxFurniture(javax.swing.JComboBox<String> comBoxFurniture) {
+    public void setComBoxFurniture(javax.swing.JComboBox comBoxFurniture) {
         this.comBoxFurniture = comBoxFurniture;
     }
 
-    public javax.swing.JComboBox<String> getComBoxPropertyType() {
+    public javax.swing.JComboBox getComBoxPropertyType() {
         return comBoxPropertyType;
     }
 
-    public void setComBoxPropertyType(javax.swing.JComboBox<String> comBoxPropertyType) {
+    public void setComBoxPropertyType(javax.swing.JComboBox comBoxPropertyType) {
         this.comBoxPropertyType = comBoxPropertyType;
     }
 
-    public javax.swing.JComboBox<String> getComBoxStructure() {
+    public javax.swing.JComboBox getComBoxStructure() {
         return comBoxStructure;
     }
 
-    public void setComBoxStructure(javax.swing.JComboBox<String> comBoxStructure) {
+    public void setComBoxStructure(javax.swing.JComboBox comBoxStructure) {
         this.comBoxStructure = comBoxStructure;
     }
 
