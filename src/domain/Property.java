@@ -81,7 +81,6 @@ public class Property extends AbstractTableModel implements GeneralDomainObject 
     public void setDescription(String description) {
         this.description = description;
     }
-
     
     public int getStatusID() {
         return statusID;
