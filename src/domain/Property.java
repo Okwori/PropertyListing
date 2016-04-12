@@ -56,7 +56,6 @@ public class Property extends AbstractTableModel implements GeneralDomainObject 
         this.name = name;
     }
 
-   
     public String getAddress() {
         return address;
     }
@@ -72,7 +71,6 @@ public class Property extends AbstractTableModel implements GeneralDomainObject 
     public void setArea(String area) {
         this.area = area;
     }
-
    
     public String getDescription() {
         return description;
