@@ -159,6 +159,37 @@ public class FrmLoginListener implements ActionListener {
             Logger.getLogger(FrmLoginListener.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public void fillFrmListCombosFrmHome() {
+        List<GeneralDomainObject> listGdo_structure, listGdo_furniture, listGdo_ppty, listGdo_cityArea, listGDO_customers;
+        Structure structure = Controller.getInstance().getStructure();
+        Furniture furniture = Controller.getInstance().getFurniture();
+        PropertyType ppty = Controller.getInstance().getPropertyType();
+        CityArea cityArea = Controller.getInstance().getCityArea();
+        Customers customers = Controller.getInstance().getCustomer();
+        try {
+            listGdo_structure = Controller.getInstance().listCombos(structure);
+            listGdo_furniture = Controller.getInstance().listCombos(furniture);
+            listGdo_ppty = Controller.getInstance().listCombos(ppty);
+            listGdo_cityArea = Controller.getInstance().listCombos(cityArea);
+            listGDO_customers = Controller.getInstance().listCombos(customers);
+            for (int i = 0; i < listGdo_structure.size(); i++) {
+                frmHome.getComBoxStructure().addItem(listGdo_structure.get(i));
+            }
+            for (int i = 0; i < listGdo_cityArea.size(); i++) {
+                frmHome.getComBoxCityArea().addItem(listGdo_cityArea.get(i));
+            }
+            for (int i = 0; i < listGdo_furniture.size(); i++) {
+                frmHome.getComBoxFurniture().addItem(listGdo_furniture.get(i));                
+            }
+            for (int i = 0; i < listGdo_ppty.size(); i++) {
+                frmHome.getComBoxPropertyType().addItem(listGdo_ppty.get(i));
+            }
+                       
+        } catch (Exception ex) {
+            Logger.getLogger(FrmLoginListener.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     public void insertProperty(ActionEvent e) {
         try {
