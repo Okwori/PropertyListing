@@ -5,6 +5,8 @@
  */
 package gui;
 
+import listeners.FrmLoginListener;
+
 /**
  *
  * @author consc
@@ -16,6 +18,7 @@ public class FrmHome extends javax.swing.JFrame {
      */
     public FrmHome() {
         initComponents();
+        new FrmLoginListener(this).fillFrmListCombosFrmHome();       
     }
 
     /**
@@ -28,10 +31,10 @@ public class FrmHome extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        comboxAreaOfCity = new javax.swing.JComboBox<>();
-        comboxPptyType = new javax.swing.JComboBox<>();
-        comboxStructure = new javax.swing.JComboBox<>();
-        comboxFurniture = new javax.swing.JComboBox<>();
+        comBoxCityArea = new javax.swing.JComboBox<>();
+        comBoxPropertyType = new javax.swing.JComboBox<>();
+        comBoxStructure = new javax.swing.JComboBox<>();
+        comBoxFurniture = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblMain = new javax.swing.JTable();
         menuMain = new javax.swing.JMenuBar();
@@ -45,18 +48,18 @@ public class FrmHome extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Welcome to Property Listing!");
 
-        comboxAreaOfCity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose Area of City" }));
-        comboxAreaOfCity.addActionListener(new java.awt.event.ActionListener() {
+        comBoxCityArea.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose Area of City" }));
+        comBoxCityArea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboxAreaOfCityActionPerformed(evt);
+                comBoxCityAreaActionPerformed(evt);
             }
         });
 
-        comboxPptyType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose Property Type" }));
+        comBoxPropertyType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose Property Type" }));
 
-        comboxStructure.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose Structure" }));
+        comBoxStructure.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose Structure" }));
 
-        comboxFurniture.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose Furniture" }));
+        comBoxFurniture.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose Furniture" }));
 
         tblMain.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -77,23 +80,23 @@ public class FrmHome extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(0, 210, Short.MAX_VALUE)
-                        .addComponent(comboxAreaOfCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(comBoxCityArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(comboxPptyType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(comBoxPropertyType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(comboxStructure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(comBoxStructure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(comboxFurniture, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(comBoxFurniture, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(comboxAreaOfCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboxPptyType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboxStructure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboxFurniture, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comBoxCityArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comBoxPropertyType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comBoxStructure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comBoxFurniture, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
                 .addContainerGap())
@@ -162,9 +165,9 @@ public class FrmHome extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_menuCareersActionPerformed
 
-    private void comboxAreaOfCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboxAreaOfCityActionPerformed
+    private void comBoxCityAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comBoxCityAreaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_comboxAreaOfCityActionPerformed
+    }//GEN-LAST:event_comBoxCityAreaActionPerformed
 
     private void menuRentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRentActionPerformed
         // TODO add your handling code here:
@@ -213,10 +216,10 @@ public class FrmHome extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<Object> comboxAreaOfCity;
-    private javax.swing.JComboBox<Object> comboxFurniture;
-    private javax.swing.JComboBox<Object> comboxPptyType;
-    private javax.swing.JComboBox<Object> comboxStructure;
+    private javax.swing.JComboBox<Object> comBoxCityArea;
+    private javax.swing.JComboBox<Object> comBoxFurniture;
+    private javax.swing.JComboBox<Object> comBoxPropertyType;
+    private javax.swing.JComboBox<Object> comBoxStructure;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JMenuItem menuCareers;
@@ -232,4 +235,37 @@ public class FrmHome extends javax.swing.JFrame {
     public  javax.swing.JTable getTblMain() {
         return this.tblMain;
     }
+
+    public javax.swing.JComboBox<Object> getComBoxCityArea() {
+        return comBoxCityArea;
+    }
+
+    public void setComBoxCityArea(javax.swing.JComboBox<Object> comBoxCityArea) {
+        this.comBoxCityArea = comBoxCityArea;
+    }
+
+    public javax.swing.JComboBox<Object> getComBoxFurniture() {
+        return comBoxFurniture;
+    }
+
+    public void setComBoxFurniture(javax.swing.JComboBox<Object> comBoxFurniture) {
+        this.comBoxFurniture = comBoxFurniture;
+    }
+
+    public javax.swing.JComboBox<Object> getComBoxPropertyType() {
+        return comBoxPropertyType;
+    }
+
+    public void setComBoxPropertyType(javax.swing.JComboBox<Object> comBoxPropertyType) {
+        this.comBoxPropertyType = comBoxPropertyType;
+    }
+
+    public javax.swing.JComboBox<Object> getComBoxStructure() {
+        return comBoxStructure;
+    }
+
+    public void setComBoxStructure(javax.swing.JComboBox<Object> comBoxStructure) {
+        this.comBoxStructure = comBoxStructure;
+    }
+    
 }

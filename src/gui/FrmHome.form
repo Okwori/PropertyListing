@@ -109,13 +109,13 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="0" pref="210" max="32767" attributes="0"/>
-                          <Component id="comboxAreaOfCity" min="-2" max="-2" attributes="0"/>
+                          <Component id="comBoxCityArea" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="comboxPptyType" min="-2" max="-2" attributes="0"/>
+                          <Component id="comBoxPropertyType" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="comboxStructure" min="-2" max="-2" attributes="0"/>
+                          <Component id="comBoxStructure" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="comboxFurniture" min="-2" max="-2" attributes="0"/>
+                          <Component id="comBoxFurniture" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jScrollPane1" max="32767" attributes="0"/>
                   </Group>
@@ -126,10 +126,10 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="comboxAreaOfCity" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="comboxPptyType" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="comboxStructure" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="comboxFurniture" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="comBoxCityArea" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="comBoxPropertyType" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="comBoxStructure" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="comBoxFurniture" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" pref="275" max="32767" attributes="0"/>
@@ -139,7 +139,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JComboBox" name="comboxAreaOfCity">
+        <Component class="javax.swing.JComboBox" name="comBoxCityArea">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="1">
@@ -148,13 +148,13 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboxAreaOfCityActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comBoxCityAreaActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Object&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JComboBox" name="comboxPptyType">
+        <Component class="javax.swing.JComboBox" name="comBoxPropertyType">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="1">
@@ -166,7 +166,7 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Object&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JComboBox" name="comboxStructure">
+        <Component class="javax.swing.JComboBox" name="comBoxStructure">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="1">
@@ -178,7 +178,7 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Object&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JComboBox" name="comboxFurniture">
+        <Component class="javax.swing.JComboBox" name="comBoxFurniture">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="1">
