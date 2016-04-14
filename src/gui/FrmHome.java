@@ -13,12 +13,15 @@ import listeners.FrmLoginListener;
  */
 public class FrmHome extends javax.swing.JFrame {
 
+    private FrmLoginListener frmListerner;
     /**
      * Creates new form home
      */
     public FrmHome() {
-        initComponents();
-        new FrmLoginListener(this).fillFrmListCombosFrmHome();       
+        this.frmListerner = new FrmLoginListener(this);
+        initComponents();        
+        frmListerner.fillFrmListCombosFrmHome();
+        frmListerner.fillTable();
     }
 
     /**

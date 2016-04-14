@@ -16,6 +16,7 @@ import domain.UserGroup;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -241,5 +242,10 @@ public class FrmLoginListener implements ActionListener {
     
     public void cancelProperty(ActionEvent e){
         frmList.dispose();
+    }
+
+    public void fillTable() {
+        //List<Property> listProperty = Controller.getInstance().getClass();
+        frmHome.getTblMain().setModel(new Property((List<Property>) Controller.getInstance().getProperty()));
     }
 }

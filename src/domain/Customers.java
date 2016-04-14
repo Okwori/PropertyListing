@@ -169,6 +169,4 @@ public class Customers implements GeneralDomainObject{
     public String toString() {
         return getFirstName()+" "+getmName()+" "+getLastName()+" "; //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
 }

@@ -40,6 +40,10 @@ public class Property extends AbstractTableModel implements GeneralDomainObject 
     public Property() {
     }
 
+    public Property(List<Property> propertyList) {
+        this.propertyList = propertyList;
+    }
+    
     public int getPropertyID() {
         return propertyID;
     }
@@ -155,13 +159,17 @@ public class Property extends AbstractTableModel implements GeneralDomainObject 
     public List<GeneralDomainObject> getObjectList(ResultSet rs) throws SQLException {
         List<GeneralDomainObject> obj = new ArrayList<>();
         while (rs.next()) {
-            Users user = new Users();
-            user.setUserID(rs.getInt("user_id"));
-            user.setUserName(rs.getString("user"));
-            user.setUserPassword(rs.getString("user_password"));
-            user.setGroupID(rs.getInt("group_id"));
-            user.setStatusID(rs.getInt("status_id"));
-            obj.add(user);
+            Property property = new Property();
+            property.setPropertyID(rs.getInt("property_id"));
+            property.setName(rs.getString("property_name "));
+            property.setStructure(rs.getString(""));
+            property.setPropertyType(rs.getString(""));
+            property.setPrice(rs.getInt(""));
+            property.setAddress(rs.getString(""));
+            property.setArea(rs.getString(""));
+            property.setFurniture(rs.getString(""));
+            property.setDescription(rs.getString(""));
+            obj.add(property);
         }
         return obj;
     }
@@ -231,4 +239,3 @@ public class Property extends AbstractTableModel implements GeneralDomainObject 
         this.furniture = furniture;
     }
 }
-
