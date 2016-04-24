@@ -17,6 +17,7 @@ import java.io.InputStreamReader;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import model.PropertyTableModel;
 
 /**
  *
@@ -34,6 +35,7 @@ public class Controller extends Exception {
     CityArea cityArea = new CityArea();
     Property property = new Property();
     Customers customer = new Customers();
+    private PropertyTableModel propertyTableModel = new PropertyTableModel();
 
     private Controller() {
     }
@@ -75,7 +77,7 @@ public class Controller extends Exception {
     
     public UserGroup getUserGroup(){
         return group;
-    }
+    }    
 
     public void insertDomainObject(GeneralDomainObject gdo) throws SQLException, Exception {
         dbb.insertDomainObject(gdo);
@@ -87,5 +89,13 @@ public class Controller extends Exception {
     
     public  List<GeneralDomainObject> listLoggedInUser(String username, String user_password) throws SQLException, Exception{
         return dbb.ListDomainObject(getUser(), " where user='"+username+"' and user_password='"+user_password+"'");
+    }
+
+    public PropertyTableModel getPropertyTableModel() {
+        return propertyTableModel;
+    }
+
+   public void setPropertyTableModel(PropertyTableModel propertyTableModel) {
+        this.propertyTableModel = propertyTableModel;
     }
 }

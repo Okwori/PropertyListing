@@ -22,6 +22,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ComboBoxModel;
 import javax.swing.JComboBox;
+import model.PropertyTableModel;
 
 /**
  *
@@ -225,9 +226,7 @@ public class FrmLoginListener implements ActionListener {
             Logger.getLogger(FrmLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    //public void 
-
+   
     public void resetProperty(ActionEvent e) {
         frmList.getTxtPrice().setText(null);
         frmList.getTxtAddress().setText(null);
@@ -244,8 +243,14 @@ public class FrmLoginListener implements ActionListener {
         frmList.dispose();
     }
 
-    public void fillTable() {
-        //List<Property> listProperty = Controller.getInstance().getClass();
-        frmHome.getTblMain().setModel(new Property((List<Property>) Controller.getInstance().getProperty()));
+    public void fillTable(){        
+        try {
+            PropertyTableModel listProperty = Controller.getInstance().getPropertyTableModel();
+            List<GeneralDomainObject> ppty;
+            ppty = Controller.getInstance().listCombos(listProperty);            
+            frmHome.getTblMain().setModel(new PropertyTableModel(ppty));
+        } catch (Exception ex) {
+            Logger.getLogger(FrmLoginListener.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

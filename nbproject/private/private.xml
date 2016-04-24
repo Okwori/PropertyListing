@@ -3,19 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/consc/Documents/NetBeansProjects/PropertyListing/src/domain/Customers.java</file>
-            <file>file:/C:/Users/consc/Documents/NetBeansProjects/PropertyListing/src/gui/FrmList.java</file>
-            <file>file:/C:/Users/consc/Documents/NetBeansProjects/PropertyListing/src/domain/Structure.java</file>
-            <file>file:/C:/Users/consc/Documents/NetBeansProjects/PropertyListing/src/domain/PropertyType.java</file>
-            <file>file:/C:/Users/consc/Documents/NetBeansProjects/PropertyListing/src/controller/Controller.java</file>
-            <file>file:/C:/Users/consc/Documents/NetBeansProjects/PropertyListing/src/domain/CityArea.java</file>
             <file>file:/C:/Users/consc/Documents/NetBeansProjects/PropertyListing/src/gui/FrmHome.java</file>
             <file>file:/C:/Users/consc/Documents/NetBeansProjects/PropertyListing/src/gui/FrmLogin.java</file>
             <file>file:/C:/Users/consc/Documents/NetBeansProjects/PropertyListing/src/listeners/FrmLoginListener.java</file>
-            <file>file:/C:/Users/consc/Documents/NetBeansProjects/PropertyListing/src/db/DatabaseBroker.java</file>
+            <file>file:/C:/Users/consc/Documents/NetBeansProjects/PropertyListing/src/model/PropertyTableModel.java</file>
             <file>file:/C:/Users/consc/Documents/NetBeansProjects/PropertyListing/src/domain/Property.java</file>
-            <file>file:/C:/Users/consc/Documents/NetBeansProjects/PropertyListing/src/domain/Users.java</file>
-            <file>file:/C:/Users/consc/Documents/NetBeansProjects/PropertyListing/src/domain/Furniture.java</file>
+            <file>file:/C:/Users/consc/Documents/NetBeansProjects/PropertyListing/src/controller/Controller.java</file>
+            <file>file:/C:/Users/consc/Documents/NetBeansProjects/PropertyListing/src/db/DatabaseBroker.java</file>
         </group>
     </open-files>
 </project-private>

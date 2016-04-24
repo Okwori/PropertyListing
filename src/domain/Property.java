@@ -15,7 +15,7 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author Simon Okwori - University of Belgrade. Msc Software Engineering
  */
-public class Property extends AbstractTableModel implements GeneralDomainObject {
+public class Property implements GeneralDomainObject {
 
     private int propertyID;
     //private List<Property> property;
@@ -29,7 +29,7 @@ public class Property extends AbstractTableModel implements GeneralDomainObject 
     private String description;
     private CityArea cityAreaID;
     private int statusID;
-    private Customers customerID;
+    private Customers customerID;  
     private String structure;
     private String propertyType;
     private String furniture;
@@ -162,13 +162,13 @@ public class Property extends AbstractTableModel implements GeneralDomainObject 
             Property property = new Property();
             property.setPropertyID(rs.getInt("property_id"));
             property.setName(rs.getString("property_name "));
-            property.setStructure(rs.getString(""));
-            property.setPropertyType(rs.getString(""));
-            property.setPrice(rs.getInt(""));
-            property.setAddress(rs.getString(""));
-            property.setArea(rs.getString(""));
-            property.setFurniture(rs.getString(""));
-            property.setDescription(rs.getString(""));
+            property.setStructure(rs.getString("structure"));
+            property.setPropertyType(rs.getString("property_type"));
+            property.setPrice(rs.getInt("price"));
+            property.setAddress(rs.getString("address"));
+            property.setArea(rs.getString("area"));
+            property.setFurniture(rs.getString("furniture"));
+            property.setDescription(rs.getString("description"));
             obj.add(property);
         }
         return obj;
@@ -180,39 +180,6 @@ public class Property extends AbstractTableModel implements GeneralDomainObject 
 
     public void setCustList(List<Customers> custList) {
         this.custList = custList;
-    }
-
-    @Override
-    public int getRowCount() {
-        return propertyList.size();
-    }
-
-    @Override
-    public int getColumnCount() {
-        return 8;
-    }
-
-    @Override
-    public Object getValueAt(int rowIndex, int columnIndex) {
-        Property property = propertyList.get(rowIndex);
-
-        switch (columnIndex) {
-            case 0:
-                return property.getName();
-            case 1:
-                return property.getName();
-            case 2:
-                return property.getStructure();
-            case 3:
-                return property.getPropertyType();
-            case 4:
-                return property.getPrice();
-            case 5:
-                return property.getFurnitureID();
-            case 6:
-                return property.getDescription();            
-        }
-        return null;
     }
 
     public String getStructure() {
