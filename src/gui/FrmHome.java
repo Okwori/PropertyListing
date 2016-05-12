@@ -40,6 +40,7 @@ public class FrmHome extends javax.swing.JFrame {
         comBoxFurniture = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblMain = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
         menuMain = new javax.swing.JMenuBar();
         menuRent = new javax.swing.JMenu();
         menuSale = new javax.swing.JMenu();
@@ -89,6 +90,13 @@ public class FrmHome extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblMain);
 
+        jButton1.setText("Exit");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -96,16 +104,19 @@ public class FrmHome extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addComponent(jScrollPane1)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 210, Short.MAX_VALUE)
-                        .addComponent(comBoxCityArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(comBoxPropertyType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(comBoxStructure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(comBoxFurniture, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(comBoxCityArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(comBoxPropertyType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(comBoxStructure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(comBoxFurniture, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING)))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,7 +128,8 @@ public class FrmHome extends javax.swing.JFrame {
                     .addComponent(comBoxFurniture, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(17, 17, 17)
+                .addComponent(jButton1))
         );
 
         menuMain.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -184,7 +196,7 @@ public class FrmHome extends javax.swing.JFrame {
     }//GEN-LAST:event_menuCareersActionPerformed
 
     private void comBoxCityAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comBoxCityAreaActionPerformed
-        // TODO add your handling code here:
+        tblMain.bounds();//setVisible(false);
     }//GEN-LAST:event_comBoxCityAreaActionPerformed
 
     private void menuRentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRentActionPerformed
@@ -195,6 +207,10 @@ public class FrmHome extends javax.swing.JFrame {
     private void menuContactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuContactActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_menuContactActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        new FrmLoginListener(this).exitFrmHome(evt);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -238,6 +254,7 @@ public class FrmHome extends javax.swing.JFrame {
     private javax.swing.JComboBox<Object> comBoxFurniture;
     private javax.swing.JComboBox<Object> comBoxPropertyType;
     private javax.swing.JComboBox<Object> comBoxStructure;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JMenuItem menuCareers;

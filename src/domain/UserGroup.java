@@ -67,5 +67,10 @@ public class UserGroup implements GeneralDomainObject{
     public void setGroupName(String groupName) {
         this.groupName = groupName;
     }   
+    
+    @Override
+    public  String toString(){
+        return getGroupName();
+    }
 }
 

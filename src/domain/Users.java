@@ -94,7 +94,7 @@ public class Users implements GeneralDomainObject {
 
     @Override
     public String getValuesForInsert() {
-        return '('+ getUserName()+','+ getUserPassword() +',' + getGroupID() + ',' + getStatusID() + ')';
+        return '('+ getUserName()+','+ getUserPassword() +',' + getUserGroup().getGroupID()+ ',' + getStatusID() + ')';
     }
 
     @Override

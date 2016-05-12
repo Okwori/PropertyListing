@@ -5,16 +5,18 @@
  */
 package gui;
 
+import listeners.FrmLoginListener;
+
 /**
  *
  * @author consc
  */
-public class Client extends javax.swing.JFrame {
+public class FrmClient extends javax.swing.JFrame {
 
     /**
      * Creates new form Client
      */
-    public Client() {
+    public FrmClient() {
         initComponents();
     }
 
@@ -44,12 +46,12 @@ public class Client extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtTextArea = new javax.swing.JTextArea();
         jLabel9 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        comboCountry = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        comboCity = new javax.swing.JComboBox<>();
         menuMain = new javax.swing.JMenuBar();
         menuRent = new javax.swing.JMenu();
         menuSale = new javax.swing.JMenu();
@@ -86,8 +88,6 @@ public class Client extends javax.swing.JFrame {
 
         jLabel10.setText("Country");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jButton1.setText("Submit");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,8 +96,18 @@ public class Client extends javax.swing.JFrame {
         });
 
         jButton2.setText("Reset");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Cancel");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         menuMain.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         menuMain.setRequestFocusEnabled(false);
@@ -171,13 +181,12 @@ public class Client extends javax.swing.JFrame {
                                     .addComponent(jLabel9)
                                     .addComponent(jLabel10))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                                        .addComponent(txtOfficialID)
-                                        .addComponent(jTextField7))
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtMiddleName, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                    .addComponent(txtOfficialID)
+                                    .addComponent(comboCountry, 0, 150, Short.MAX_VALUE)
+                                    .addComponent(txtMiddleName, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                    .addComponent(comboCity, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(63, 63, 63))))
         );
         layout.setVerticalGroup(
@@ -208,13 +217,13 @@ public class Client extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel9)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(36, 36, 36)
+                            .addComponent(comboCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(29, 29, 29)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel10)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(comboCountry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel8)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
@@ -222,7 +231,7 @@ public class Client extends javax.swing.JFrame {
                     .addComponent(jButton1)
                     .addComponent(jButton2)
                     .addComponent(jButton3))
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
 
         pack();
@@ -235,6 +244,14 @@ public class Client extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        new FrmLoginListener(this).cancelClientsForm(evt);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        new FrmLoginListener(this).resetClientsForm(evt);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -253,29 +270,31 @@ public class Client extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Client.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Client.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Client.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Client.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Client().setVisible(true);
+                new FrmClient().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> comboCity;
+    private javax.swing.JComboBox<String> comboCountry;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -288,7 +307,6 @@ public class Client extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField7;
     private javax.swing.JMenuItem menuCareers;
     private javax.swing.JMenuItem menuContact;
     private javax.swing.JMenu menuInfo;

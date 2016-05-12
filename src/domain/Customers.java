@@ -20,14 +20,16 @@ public class Customers implements GeneralDomainObject{
     private String firstName;
     private String lastName;
     private String mName;
-    private int indentNo;
     private String email;
     private String phoneNumber;
     private String address;
-    private int cityID;
     private int statusID;
-    private int countryID;
     private int userID;
+    private String iDNumber;
+    
+    private Country country;
+    private CityArea city;
+    private Indentification indentification;    
 
     public Customers() {
     }
@@ -38,6 +40,14 @@ public class Customers implements GeneralDomainObject{
 
     public void setCustomerID(int customerID) {
         this.customerID = customerID;
+    }
+
+    public String getiDNumber() {
+        return iDNumber;
+    }
+
+    public void setiDNumber(String iDNumber) {
+        this.iDNumber = iDNumber;
     }
 
     public String getFirstName() {
@@ -64,14 +74,6 @@ public class Customers implements GeneralDomainObject{
         this.mName = mName;
     }
 
-    public int getIndentNo() {
-        return indentNo;
-    }
-
-    public void setIndentNo(int indentNo) {
-        this.indentNo = indentNo;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -95,29 +97,13 @@ public class Customers implements GeneralDomainObject{
     public void setAddress(String address) {
         this.address = address;
     }
-
-    public int getCityID() {
-        return cityID;
-    }
-
-    public void setCityID(int cityID) {
-        this.cityID = cityID;
-    }
-
+    
     public int getStatusID() {
         return statusID;
     }
 
     public void setStatusID(int statusID) {
         this.statusID = statusID;
-    }
-
-    public int getCountryID() {
-        return countryID;
-    }
-
-    public void setCountryID(int countryID) {
-        this.countryID = countryID;
     }
 
     public int getUserID() {
@@ -133,14 +119,38 @@ public class Customers implements GeneralDomainObject{
         return "customer";
     }
 
+    public Country getCountry() {
+        return country;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
+    }
+
+    public CityArea getCity() {
+        return city;
+    }
+
+    public void setCity(CityArea city) {
+        this.city = city;
+    }
+
+    public Indentification getIndentification() {
+        return indentification;
+    }
+
+    public void setIndentification(Indentification indentification) {
+        this.indentification = indentification;
+    }
+    
     @Override
     public String getValuesForInsert() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return '(' + getFirstName()+ ',' + getLastName() + ',' + getmName() + ',' + getIndentification().getID() + getiDNumber() + ',' + getEmail()+ ',' + getPhoneNumber()+ ',' + getCity().getCityAreaID() + ',' + getStatusID() + ',' + getCountry().getID() + ',' + getUserID()+ ')';
     }
 
     @Override
     public String getColumnsForInsert() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "(customer_fname, customer_lname, customer_mname, indentification_id, id_number, email, phone_number, city, status_id, country_id, user_id)";
     }
  
     @Override
@@ -149,17 +159,19 @@ public class Customers implements GeneralDomainObject{
         while(rs.next()){
             Customers customers = new Customers();
             customers.setAddress(rs.getString("address"));
-            customers.setCityID(rs.getInt("city"));
-            customers.setCountryID(rs.getInt("country_id"));
+            //customers.setCityID(rs.getInt("city"));
+            //customers.setCountryID(rs.getInt("country_id"));
             customers.setEmail(rs.getString("email"));
             customers.setFirstName(rs.getString("customer_fname"));
-            customers.setIndentNo(rs.getInt("indentification_id"));
+            //customers.setIndentNo(rs.getInt("indentification_id"));
             customers.setLastName(rs.getString("customer_lname"));
             customers.setPhoneNumber(rs.getString("phone_number"));
             customers.setStatusID(rs.getInt("status_id"));
             customers.setUserID(rs.getInt("user_id"));
             customers.setmName(rs.getString("customer_mname"));
             customers.setCustomerID(rs.getInt("customer_id"));
+            customers.setiDNumber(rs.getString("id_number"));
+            
             obj.add(customers);
         }
         return obj;    

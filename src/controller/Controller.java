@@ -35,6 +35,9 @@ public class Controller extends Exception {
     CityArea cityArea = new CityArea();
     Property property = new Property();
     Customers customer = new Customers();
+    Indentification indentification = new Indentification();
+    Country country = new Country();
+    
     private PropertyTableModel propertyTableModel = new PropertyTableModel();
 
     private Controller() {
@@ -79,6 +82,22 @@ public class Controller extends Exception {
         return group;
     }    
 
+    public Indentification getIndentification() {
+        return indentification;
+    }
+
+    public Country getCountry() {
+        return country;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
+    }
+    
+    public void setIndentification(Indentification indentification) {
+        this.indentification = indentification;
+    }
+    
     public void insertDomainObject(GeneralDomainObject gdo) throws SQLException, Exception {
         dbb.insertDomainObject(gdo);
     }
@@ -89,6 +108,10 @@ public class Controller extends Exception {
     
     public  List<GeneralDomainObject> listLoggedInUser(String username, String user_password) throws SQLException, Exception{
         return dbb.ListDomainObject(getUser(), " where user='"+username+"' and user_password='"+user_password+"'");
+    }
+    
+    public List<GeneralDomainObject> listDomainObjects(GeneralDomainObject gdo, String whereClause) throws SQLException, Exception{
+        return dbb.ListDomainObject(gdo, whereClause);
     }
 
     public PropertyTableModel getPropertyTableModel() {

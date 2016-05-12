@@ -29,10 +29,12 @@ public class Property implements GeneralDomainObject {
     private String description;
     private CityArea cityAreaID;
     private int statusID;
-    private Customers customerID;  
+    private Customers customerID;
     private String structure;
     private String propertyType;
     private String furniture;
+    private int custID;
+    private int structID, propTypeID, furnitID;
 
     private List<Customers> custList;
     private List<Property> propertyList;
@@ -43,9 +45,33 @@ public class Property implements GeneralDomainObject {
     public Property(List<Property> propertyList) {
         this.propertyList = propertyList;
     }
-    
+
     public int getPropertyID() {
         return propertyID;
+    }
+
+    public int getPropTypeID() {
+        return propTypeID;
+    }
+
+    public void setPropTypeID(int propTypeID) {
+        this.propTypeID = propTypeID;
+    }
+
+    public int getCustID() {
+        return custID;
+    }
+
+    public int getStructID() {
+        return structID;
+    }
+
+    public void setStructID(int structID) {
+        this.structID = structID;
+    }
+
+    public void setCustID(int custID) {
+        this.custID = custID;
     }
 
     public void setPropertyID(int propertyID) {
@@ -64,6 +90,14 @@ public class Property implements GeneralDomainObject {
         return address;
     }
 
+    public int getFurnitID() {
+        return furnitID;
+    }
+
+    public void setFurnitID(int furnitID) {
+        this.furnitID = furnitID;
+    }
+
     public void setAddress(String address) {
         this.address = address;
     }
@@ -75,7 +109,7 @@ public class Property implements GeneralDomainObject {
     public void setArea(String area) {
         this.area = area;
     }
-   
+
     public String getDescription() {
         return description;
     }
@@ -83,7 +117,7 @@ public class Property implements GeneralDomainObject {
     public void setDescription(String description) {
         this.description = description;
     }
-    
+
     public int getStatusID() {
         return statusID;
     }
@@ -160,15 +194,17 @@ public class Property implements GeneralDomainObject {
         List<GeneralDomainObject> obj = new ArrayList<>();
         while (rs.next()) {
             Property property = new Property();
-            property.setPropertyID(rs.getInt("property_id"));
-            property.setName(rs.getString("property_name "));
-            property.setStructure(rs.getString("structure"));
-            property.setPropertyType(rs.getString("property_type"));
+            property.setName(rs.getString("property_name"));
+            property.setStructID(rs.getInt("structure_id"));
+            property.setPropTypeID(rs.getInt("property_type_id"));
             property.setPrice(rs.getInt("price"));
             property.setAddress(rs.getString("address"));
             property.setArea(rs.getString("area"));
-            property.setFurniture(rs.getString("furniture"));
+            property.setFurnitID(rs.getInt("furniture_id"));
             property.setDescription(rs.getString("description"));
+            property.setStatusID(rs.getInt("status_id"));
+            property.setCustID(rs.getInt("customer_id"));
+            property.setPropertyID(rs.getInt("property_id"));
             obj.add(property);
         }
         return obj;
@@ -205,4 +241,10 @@ public class Property implements GeneralDomainObject {
     public void setFurniture(String furniture) {
         this.furniture = furniture;
     }
+
+    @Override
+    public String toString() {
+        return getName();
+    }
+
 }
