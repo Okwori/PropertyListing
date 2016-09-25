@@ -80,31 +80,31 @@ public class FrmLoginListener implements ActionListener {
 
     public void registerUsers(ActionEvent e) {
         try {
-            if ("".equals(frmLogin.getTxtNewUsername().getText().trim()) | "".equals(frmLogin.getTxt_pwd().getText().trim())) {
+            if ("".equals(frmLogin.getTxtNewUsername().getText().trim()) | "".equals(frmLogin.getjPasswordField_enterPwd().getText().trim())) {
                 javax.swing.JOptionPane.showMessageDialog(null, "You cannot leave any field empty");
-            } else if (frmLogin.getTxt_pwd().getText().equals(frmLogin.getTxt_pwdConfirm().getText()) == false) {
+            } else if (frmLogin.getjPasswordField_enterPwd().getText().equals(frmLogin.getjPasswordField_confirmPwd().getText()) == false) {
                 javax.swing.JOptionPane.showMessageDialog(null, "Password did not match! Try Again!");
             } else {
                 Users user = Controller.getInstance().getUser();
                 user.setUserName("'" + frmLogin.getTxtNewUsername().getText() + "'");
-                user.setUserPassword("'" + frmLogin.getTxt_pwd().getText() + "'");
-                user.setGroupID(frmLogin.getCombo_UserGroup().getSelectedIndex() + 1);
+                user.setUserPassword("'" + frmLogin.getjPasswordField_enterPwd().getText() + "'");
+                user.setUserGroup((UserGroup) frmLogin.getCombo_UserGroup().getSelectedItem());
                 user.setStatusID(1);
 
                 Controller.getInstance().insertDomainObject(user);
 
                 javax.swing.JOptionPane.showMessageDialog(null, "Successfully registered " + frmLogin.getTxtNewUsername().getText().toUpperCase() + ". You can now Login with your details!");
                 frmLogin.getTxtNewUsername().setText("");
-                frmLogin.getTxt_pwdConfirm().setText("");
-                frmLogin.getTxt_pwdConfirm().setText("");
+                frmLogin.getjPasswordField_confirmPwd().setText("");
+                frmLogin.getjPasswordField_confirmPwd().setText("");
                 frmLogin.getjTabbedPane1().setSelectedIndex(0);
             }
         } catch (SQLException ex) {
             javax.swing.JOptionPane.showMessageDialog(null, "User already exits");
             //Logger.getLogger(FrmLogin.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception ex) {
-            javax.swing.JOptionPane.showMessageDialog(null, "Something is not right! Check Form Listerner.registerUser.java");
-            //Logger.getLogger(FrmLogin.class.getName()).log(Level.SEVERE, null, ex);
+            //javax.swing.JOptionPane.showMessageDialog(null, "Something is not right! Check Form Listerner.registerUser.java");
+            Logger.getLogger(FrmLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -118,10 +118,12 @@ public class FrmLoginListener implements ActionListener {
                 Users obj = (Users) listGdo.get(0);
                 switch (obj.getGroupID()) {
                     case 1:
+                        FrmDashboardAdmin frmDashboardAdmin = new FrmDashboardAdmin();
                         frmDashboardAdmin.setVisible(true);
                         //javax.swing.JOptionPane.showMessageDialog(null, "Perform Admin Tasks!");
                         break;
                     case 2:
+                        FrmHome frmHome = new FrmHome();
                         frmHome.setVisible(true);
                         //javax.swing.JOptionPane.showMessageDialog(null, "Perform Help Desk Tasks");
                         break;
@@ -134,7 +136,7 @@ public class FrmLoginListener implements ActionListener {
                 }
                 javax.swing.JOptionPane.showMessageDialog(null, "Username or Password is CORRECT!" + listGdo.size() + "Status ID:" + obj.getGroupID());
             } else {
-                javax.swing.JOptionPane.showMessageDialog(null, "Username or Password is incorrect! Please Try again" + listGdo.size());
+                javax.swing.JOptionPane.showMessageDialog(null, "Username or Password is incorrect! Please Try again" );//+ listGdo.size());
             }
         } catch (SQLException ex) {
             Logger.getLogger(FrmLogin.class.getName()).log(Level.SEVERE, null, ex);
@@ -149,7 +151,7 @@ public class FrmLoginListener implements ActionListener {
         try {
             listGDO = Controller.getInstance().listCombos(ugp);
             for (int i = 0; i < listGDO.size(); i++) {
-                frmLogin.getCombo_UserGroup().addItem(((UserGroup) listGDO.get(i)).getGroupName());
+                frmLogin.getCombo_UserGroup().addItem(((UserGroup) listGDO.get(i)));
             }
         } catch (Exception ex) {
             Logger.getLogger(FrmLoginListener.class.getName()).log(Level.SEVERE, null, ex);
@@ -269,10 +271,11 @@ public class FrmLoginListener implements ActionListener {
                 customers.setCity((CityArea) frmCustomer.getComboCity().getSelectedItem());
                 customers.setCountry((Country) frmCustomer.getComboCountry().getSelectedItem());
                 customers.setIndentification((Indentification) frmCustomer.getComboIndentification().getSelectedItem());
+                customers.setiDNumber("'" + frmCustomer.getTxtIdNumber().getText() +"'");
                 customers.setmName("'" + frmCustomer.getTxtMiddleName().getText() + "'");
 
                 customers.setStatusID(1);
-                customers.setUserID(Controller.getInstance().getUser().getUserID());
+                customers.setUserID(2);//Controller.getInstance().getUser().getUserID());
 
                 Controller.getInstance().insertDomainObject(customers);
 

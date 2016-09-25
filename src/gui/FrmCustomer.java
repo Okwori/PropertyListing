@@ -259,7 +259,7 @@ public class FrmCustomer extends javax.swing.JFrame {
     public JTextPane getTxtIdNumber() {
         return txtIdNumber;
     }
-
+ 
     public void setTxtIdNumber(JTextPane txtIdNumber) {
         this.txtIdNumber = txtIdNumber;
     }

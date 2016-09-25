@@ -13,6 +13,7 @@ import db.DatabaseBroker;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
 
 /**
@@ -39,9 +40,6 @@ public class FrmLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        //entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("mysql?zeroDateTimeBehavior=convertToNullPU").createEntityManager();
-        //dbQuery = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT d FROM Db d");
-        //dbList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : dbQuery.getResultList();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         lbl_username = new javax.swing.JLabel();
@@ -53,12 +51,12 @@ public class FrmLogin extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtNewUsername = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txt_pwd = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txt_pwdConfirm = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         combo_UserGroup = new javax.swing.JComboBox<>();
+        jPasswordField_enterPwd = new javax.swing.JPasswordField();
+        jPasswordField_confirmPwd = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -124,12 +122,6 @@ public class FrmLogin extends javax.swing.JFrame {
 
         jLabel4.setText("Confirm password");
 
-        txt_pwdConfirm.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_pwdConfirmActionPerformed(evt);
-            }
-        });
-
         jButton2.setText("Submit");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,29 +137,24 @@ public class FrmLogin extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addGap(22, 22, 22)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtNewUsername)
-                            .addComponent(txt_pwd, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtNewUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addComponent(jLabel5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton2)
-                                .addGap(80, 80, 80))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addGap(19, 19, 19)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txt_pwdConfirm, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(combo_UserGroup, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                            .addComponent(jButton2)
+                            .addComponent(jPasswordField_confirmPwd, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(combo_UserGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPasswordField_enterPwd, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(66, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -180,11 +167,11 @@ public class FrmLogin extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txt_pwd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPasswordField_enterPwd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txt_pwdConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPasswordField_confirmPwd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -228,10 +215,6 @@ public class FrmLogin extends javax.swing.JFrame {
     private void jButton2btnSubmitAction(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2btnSubmitAction
         new FrmLoginListener(this).registerUsers(evt);
     }//GEN-LAST:event_jButton2btnSubmitAction
-
-    private void txt_pwdConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_pwdConfirmActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_pwdConfirmActionPerformed
 
     /**
      * @param args the command line arguments
@@ -279,10 +262,7 @@ public class FrmLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> combo_UserGroup;
-    //private java.util.List<gui.Db> dbList;
-    private javax.persistence.Query dbQuery;
-    private javax.persistence.EntityManager entityManager;
+    private javax.swing.JComboBox<Object> combo_UserGroup;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -292,18 +272,18 @@ public class FrmLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPasswordField jPasswordField_confirmPwd;
+    private javax.swing.JPasswordField jPasswordField_enterPwd;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lbl_username;
     private javax.swing.JTextField txtNewUsername;
     private javax.swing.JPasswordField txt_password;
-    private javax.swing.JTextField txt_pwd;
-    private javax.swing.JTextField txt_pwdConfirm;
     private javax.swing.JTextField txt_username;
     // End of variables declaration//GEN-END:variables
 
-    public javax.swing.JTextField getjTextField3() {
-        return txt_pwdConfirm;
-    }
+//    public javax.swing.JTextField getjTextField3() {
+//        return txt_pwdConfirm;
+//    }
 
     public javax.swing.JLabel getLbl_username() {
         return lbl_username;
@@ -317,39 +297,55 @@ public class FrmLogin extends javax.swing.JFrame {
         return txt_password;
     }
 
-    public javax.swing.JTextField getTxt_pwd() {
-        return txt_pwd;
-    }
+//    public javax.swing.JTextField getTxt_pwd() {
+//        return txt_pwd;
+//    }
 
     public javax.swing.JTextField getTxt_username() {
         return txt_username;
     }
 
-    public javax.swing.JTextField getTxt_pwdConfirm() {
-        return txt_pwdConfirm;
-    }
+//    public javax.swing.JTextField getTxt_pwdConfirm() {
+//        return txt_pwdConfirm;
+//    }
 
     public void setTxtNewUsername(javax.swing.JTextField txtNewUsername) {
         this.txtNewUsername = txtNewUsername;
     }
 
-    public void setTxt_pwd(javax.swing.JTextField txt_pwd) {
-        this.txt_pwd = txt_pwd;
-    }
-
-    public void setTxt_pwdConfirm(javax.swing.JTextField txt_pwdConfirm) {
-        this.txt_pwdConfirm = txt_pwdConfirm;
-    }
+//    public void setTxt_pwd(javax.swing.JTextField txt_pwd) {
+//        this.txt_pwd = txt_pwd;
+//    }
+//
+//    public void setTxt_pwdConfirm(javax.swing.JTextField txt_pwdConfirm) {
+//        this.txt_pwdConfirm = txt_pwdConfirm;
+//    }
 
     public javax.swing.JTabbedPane getjTabbedPane1() {
         return jTabbedPane1;
     }
 
-    public javax.swing.JComboBox<String> getCombo_UserGroup() {
+    public JComboBox<Object> getCombo_UserGroup() {
         return combo_UserGroup;
     }
 
-    public void setCombo_UserGroup(javax.swing.JComboBox<String> combo_UserGroup) {
+    public void setCombo_UserGroup(JComboBox<Object> combo_UserGroup) {
         this.combo_UserGroup = combo_UserGroup;
+    }
+
+    public javax.swing.JPasswordField getjPasswordField_confirmPwd() {
+        return jPasswordField_confirmPwd;
+    }
+
+    public void setjPasswordField_confirmPwd(javax.swing.JPasswordField jPasswordField_confirmPwd) {
+        this.jPasswordField_confirmPwd = jPasswordField_confirmPwd;
+    }
+
+    public javax.swing.JPasswordField getjPasswordField_enterPwd() {
+        return jPasswordField_enterPwd;
+    }
+
+    public void setjPasswordField_enterPwd(javax.swing.JPasswordField jPasswordField_enterPwd) {
+        this.jPasswordField_enterPwd = jPasswordField_enterPwd;
     }
 }

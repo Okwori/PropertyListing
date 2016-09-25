@@ -145,7 +145,7 @@ public class Customers implements GeneralDomainObject{
     
     @Override
     public String getValuesForInsert() {
-        return '(' + getFirstName()+ ',' + getLastName() + ',' + getmName() + ',' + getIndentification().getID() + getiDNumber() + ',' + getEmail()+ ',' + getPhoneNumber()+ ',' + getCity().getCityAreaID() + ',' + getStatusID() + ',' + getCountry().getID() + ',' + getUserID()+ ')';
+        return '(' + getFirstName()+ ',' + getLastName() + ',' + getmName() + ',' + getIndentification().getID()+ ',' + getiDNumber() + ',' + getEmail()+ ',' + getPhoneNumber()+ ',' + getCity().getCityAreaID() + ',' + getStatusID() + ',' + getCountry().getID() + ',' + getUserID()+ ')';
     }
 
     @Override
