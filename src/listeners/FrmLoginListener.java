@@ -317,12 +317,20 @@ public class FrmLoginListener implements ActionListener {
     public void cancelProperty(ActionEvent e) {
         frmList.dispose();
     }
+    
+    public void registerAgent(){
+        // TODO
+    }
+    
+    public void insertClient(){
+        // TODO
+    }
 
     public void cancelCustomer(ActionEvent e) {
         frmCustomer.dispose();
     }
 
-    public void fillTable() {
+    public void fillPropertyTable() {
         try {
             PropertyTableModel listProperty = Controller.getInstance().getPropertyTableModel();
             List<GeneralDomainObject> ppty;
