@@ -1,0 +1,82 @@
+"Solomon Homes", "Zvezdara", "Beograd!"
+"Avala", "Hotel", "Mostva!"
+
+
+
+
+    /*
+    private void fillCityArea(){
+        cityArea.add(new CityArea("Barajevo","","Beograd"));
+        cityArea.add(new CityArea("Čukarica","","Beograd"));
+        cityArea.add(new CityArea("Grocka","","Beograd"));
+        cityArea.add(new CityArea("Lazarevac","","Beograd"));
+        cityArea.add(new CityArea("Mladenovac","","Beograd"));
+        cityArea.add(new CityArea("Novi Beograd","","Beograd"));
+        cityArea.add(new CityArea("Obrenovac","","Beograd"));
+        cityArea.add(new CityArea("Palilula","","Beograd"));
+        cityArea.add(new CityArea("Rakovica","","Beograd"));
+        cityArea.add(new CityArea("Savski Venac","","Beograd"));
+        cityArea.add(new CityArea("Sopot","","Beograd"));
+        cityArea.add(new CityArea("Stari Grad","","Beograd"));
+        cityArea.add(new CityArea("Surčin","","Beograd"));
+        cityArea.add(new CityArea("Voždovac","","Beograd"));
+        cityArea.add(new CityArea("Vračar","","Beograd"));
+        cityArea.add(new CityArea("Zemun","","Beograd"));
+        cityArea.add(new CityArea("Zvezdara","","Beograd"));
+    }
+    
+    private void fillFurniture(){
+        furniture.add(new Furniture(1, "Extra furnished"));
+        furniture.add(new Furniture(1, "Furnished"));
+        furniture.add(new Furniture(1, "Half furnished"));
+        furniture.add(new Furniture(1, "Empty"));
+    }
+    
+    private void fillProperty(){
+        propertyType.add(new PropertyType(1, "Apartment"));
+        propertyType.add(new PropertyType(1, "Apartment in house"));
+        propertyType.add(new PropertyType(1, "House"));
+        propertyType.add(new PropertyType(1, "Office space"));
+        propertyType.add(new PropertyType(1, "Shop"));        
+    }
+    
+    private void fillStructure(){
+        structure.add(new Structure(1, "Studio"));
+        structure.add(new Structure(2, "1.0 Room"));
+        structure.add(new Structure(3, "1.5 Rooms"));
+        structure.add(new Structure(4, "2.0 Rooms"));
+        structure.add(new Structure(5, "2.5 Rooms"));
+        structure.add(new Structure(6, "3.0 Rooms"));
+        structure.add(new Structure(7, "3.5 Rooms"));
+        structure.add(new Structure(8, "4.0 Rooms"));
+        structure.add(new Structure(9, "4.5 Rooms"));
+        structure.add(new Structure(10, "5+ Rooms"));
+        structure.add(new Structure(11, "Others"));    
+    }
+    
+//    public void fillProperty(){
+//        property.add();
+//    }
+    
+    public void fileReader() throws FileNotFoundException, IOException {
+    FileInputStream fis = new FileInputStream("C:\\Users\\consc\\Documents\\NetBeansProjects\\PropertyListing\\src\\controller\\Property_Listings.txt");
+    DataInputStream in = new DataInputStream(fis);
+    InputStreamReader input = new InputStreamReader(in);
+    BufferedReader br = new BufferedReader(input);
+    String data;
+    
+   
+    String result = new String();
+    String name, structure, type, address, area, furniture, description; double price;
+
+    while ((data = br.readLine()) != null) {
+        for(int i = 0; i<8; i++){
+            
+        }
+        property.add(new Property(data,data,data,Double.parseDouble(data),data,data,data,data));
+        //System.out.println(data);
+        //result = result.concat(data + " ");
+    }
+
+//    System.out.println(result);
+    }*/
